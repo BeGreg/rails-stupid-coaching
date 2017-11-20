@@ -1,0 +1,26 @@
+<% question = params[:query] %>
+<% answer = "" %>
+<h1>
+  <%= question %>
+</h1>
+<p>- You</p>
+<br>
+<br>
+<br>
+
+<%  if question.downcase == "i am going to work right now!"%>
+  <% answer = "Alright, good"%>
+<%  elsif question.include? "?"%>
+  <% answer = "Silly question, get dressed and go to work!"%>
+<% else %>
+  <% answer = "I dont care, get dressed and go to work!" %>
+<% end %>
+
+<%  answer = "I can feel your motivation! " + answer if question == question.upcase %>
+
+<h1>
+  <%= answer %>
+</h1>
+<p>- Your coach</p>
+
+<%= link_to "Ask a new question", ask_path %>
